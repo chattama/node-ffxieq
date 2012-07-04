@@ -1,0 +1,25 @@
+<script src="equip.js"></script>
+
+<div data-role="page" id="equip">
+
+	<div data-role="header" data-id="mainheader" data-position="fixed" data-theme="c">
+		<div data-role="navbar" class="ui-navbar">
+		   <ul>
+			   <li><a href="/equip" data-icon="custom-pencil" class="ui-btn-active ui-state-persist">Equipment</a></li>
+			   <li><a href="/basic" data-icon="custom-pencil" class="">Basic</a></li>
+			   <li><a href="/magic" data-icon="custom-pencil" class="">Magic</a></li>
+			   <li><a href="/status" data-icon="custom-calculator" class="">Status</a></li>
+			   <li><a href="/option" data-icon="gear" class="">Option</a></li>
+		   </ul>
+	   </div>
+	</div>
+
+	<div data-role="content">
+		<ul id="Equipments" data-role="listview" data-inset="true"> 
+			{{#Equipments}}
+			<li><a href="#">{{value}}</a></li> 
+			{{/Equipments}}
+		</ul> 
+	</div>
+
+</div>

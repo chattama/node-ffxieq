@@ -1,0 +1,101 @@
+<script src="basic.js"></script>
+
+<div data-role="page" id="basic">
+
+	<div data-role="header" data-id="mainheader" data-position="fixed" data-theme="c">
+			<div data-role="navbar" class="ui-navbar">
+			   <ul>
+				   <li><a href="equip" data-icon="custom-pencil" class="">Equipment</a></li>
+				   <li><a href="basic" data-icon="custom-pencil" class="ui-btn-active ui-state-persist">Basic</a></li>
+				   <li><a href="magic" data-icon="custom-pencil" class="">Magic</a></li>
+				   <li><a href="status" data-icon="custom-calculator" class="">Status</a></li>
+			   </ul>
+		   </div>
+	</div>
+
+	<div data-role="content">
+
+		<div class="eq-container eq-content">
+		
+			<div class="eq-content-small eq-block-inline">
+				<select id="Job" data-inline="true" data-mini="true">{{#array}}{{#Jobs}}<option value="{{index}}">{{value}}</option>{{/Jobs}}{{/array}}</basic>
+			</div>
+		
+			<div class="eq-content-small eq-block-inline">
+				<input type="text" id="JobLevel" size="4" maxlength="2" min="1" max="99" value="" data-inline="true" data-mini="true" />
+			</div>
+		
+			<div class="eq-content-small eq-block-inline">
+				<select id="Race" data-inline="true" data-mini="true">{{#array}}{{#Races}}<option value="{{index}}">{{value}}</option>{{/Races}}{{/array}}</basic>
+			</div>
+		
+		</div>
+		
+		<div class="eq-container eq-content">
+		
+			<div class="eq-content-small eq-block-inline">
+				<select id="SubJob" data-inline="true" data-mini="true">{{#array}}{{#Jobs}}<option value="{{index}}">{{value}}</option>{{/Jobs}}{{/array}}</basic>
+			</div>
+		
+			<div class="eq-content-small eq-block-inline">
+				<input type="text" id="SubJobLevel" size="4" maxlength="2" min="1" max="99" value="" data-inline="true" data-mini="true" />
+			</div>
+		
+		</div>
+		
+		<div class="eq-container eq-content">
+		
+			<div class="eq-content-small eq-block-inline">
+				<input type="checkbox" id="InAbyssea" data-mini="true" /><label for="InAbyssea">{{#string}}{{InAbyssea}}{{/string}}</label>
+			</div>
+		
+			<div class="eq-content-small eq-block-inline">
+				<select id="AbyssiteOfFurtherance" data-inline="true" data-mini="true"><option value="">{{#string}}{{AbyssiteOfFurtherancePrompt}}{{/string}}</option>{{#array}}{{#AbyssiteOfFurtheranceEntries}}<option value="{{index}}">{{value}}</option>{{/AbyssiteOfFurtheranceEntries}}{{/array}}</basic>
+			</div>
+		
+			<div class="eq-content-small eq-block-inline">
+				<select id="AbyssiteOfMerit" data-inline="true" data-mini="true"><option value="">{{#string}}{{AbyssiteOfMeritPrompt}}{{/string}}</option>{{#array}}{{#AbyssiteOfMeritEntries}}<option value="{{index}}">{{value}}</option>{{/AbyssiteOfMeritEntries}}{{/array}}</basic>
+			</div>
+		
+		</div>
+		
+		<div class="eq-container eq-content">
+		
+			<ul id="Atmas" data-role="listview" data-inset="true">
+				<li data-role="list-divider">Atma</li>
+				{{#Atmas}}
+				<li><a href="/basic/atmas/{{index}}">{{value}}</a></li> 
+				{{/Atmas}}
+			</ul> 
+		
+		</div>
+		
+		<div class="eq-container eq-content">
+		
+			<ul id="Foods" data-role="listview" data-inset="true">
+				<li data-role="list-divider">Atma</li>
+				{{#Foods}}
+				<li><a href="/basic/foods/{{index}}">{{value}}</a></li> 
+				{{/Foods}}
+			</ul> 
+		
+		</div>
+		
+		<div class="eq-container eq-content">
+		
+			<ul id="VWAtmas" data-role="listview" data-inset="true">
+				<li data-role="list-divider">Atma</li>
+				{{#VWAtmas}}
+				<li><a href="/basic/vwatmas/{{index}}">{{value}}</a></li> 
+				{{/VWAtmas}}
+			</ul> 
+		
+		</div>
+	
+	</div>
+
+	<div data-role="footer" data-id="mainfooter" data-position="fixed" data-theme="c">
+		{{>header}}
+	</div>
+
+</div>

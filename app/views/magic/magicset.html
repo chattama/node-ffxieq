@@ -1,0 +1,46 @@
+<script src="/js/setting.js"></script>
+<script src="/js/model.js"></script>
+<script src="/js/widget.js"></script>
+<script src="/magic/magicset.js"></script>
+
+<div data-role="page" id="magicset">
+
+	<div data-role="header" data-position="fixed" data-theme="c">
+
+		<a href="/magic" data-icon="arrow-l" data-iconpos="notext" data-direction="reverse" class="ui-btn-left jqm-home">{{#string}}{{Menu}}{{/string}}</a>
+
+		<div data-role="controlgroup" data-type="horizontal" class="eq-right eq-font-90">
+			<a data-role="button" data-iconpos="noext" data-inline="true" data-mini="true" data-rel="dialog" href="#">{{#string}}{{Remove}}{{/string}}</a>
+		</div>
+
+	</div>
+
+	<div data-role="content">
+		<ul id="magicsetlistview" data-role="listview" data-inset="true" eq-attr="subid={{subid}}"></ul>
+	</div>
+
+</div>
+
+<div data-role="page" id="confirm" data-overlay-theme="c">
+
+	<div data-role="content">
+
+		<div data-role="fieldcontain">
+			<div id="eq-data-detail" class="ui-body ui-body-c"></div>
+		</div>
+
+		<div data-role="fieldcontain">
+			<fieldset class="ui-grid-a">
+				<div class="ui-block-a"><a data-role="button" data-icon="delete" data-theme="c" data-rel="back" href="#">{{#string}}{{Cancel}}{{/string}}</a></div>
+				<div class="ui-block-b"><a data-role="button" data-icon="check"  data-theme="b" href="/magic" id="eq-data-apply">{{#string}}{{SetBlueMagic}}{{/string}}</a></div>
+			</fieldset>
+		</div>
+
+		<div data-role="fieldcontain">
+			<a href="#" data-role="button" data-icon="search" data-rel="external" target="_blank" eq-attr="{{WebSearch0}}" id="eq-data-websearch0">{{#string}}{{FF11DictionaryJP}}{{/string}}</a>
+			<a href="#" data-role="button" data-icon="search" data-rel="external" target="_blank" eq-attr="{{WebSearch1}}" id="eq-data-websearch1">{{#string}}{{GoogleSearch}}{{/string}}</a>
+		</div>
+
+	</div>
+
+</div>

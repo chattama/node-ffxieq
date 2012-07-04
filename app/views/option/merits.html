@@ -1,0 +1,602 @@
+<script src="/js/setting.js"></script>
+<script src="/js/model.js"></script>
+<script src="/js/widget.js"></script>
+<script src="/option/merits.js"></script>
+
+<div data-role="page" id="merits">
+
+	<div data-role="header" data-position="fixed" data-theme="c">
+
+		<a href="/option" data-icon="home" data-iconpos="notext" data-direction="reverse" class="ui-btn-left jqm-home">{{#string}}{{Menu}}{{/string}}</a>
+
+		<div data-role="controlgroup" data-type="horizontal" class="eq-right eq-font-90">
+			<a href="#" data-role="button" data-iconpos="noext" data-inline="true" data-mini="true">{{#string}}{{Revert}}{{/string}}</a>
+			<a href="#" data-role="button" data-iconpos="noext" data-inline="true" data-mini="true">{{#string}}{{LinkMeritPoint}}{{/string}}</a>
+			<a data-role="button" data-iconpos="noext" data-inline="true" data-mini="true" data-rel="dialog" href="#meritsjobmenu">{{#string}}{{JobSpecificMeritPointEdit}}{{/string}}</a>
+		</div>
+
+	</div>
+
+	<div data-role="content">
+
+		<div class="eq-grid-row">
+			<div class="eq-grid-4 eq-font-90">
+				<div class="ui-btn eq-grid eq-grid-label">
+					{{#string}}{{HP}}{{/string}}
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="eq-grid">
+					<select id="HP" data-inline="true" data-mini="true" data-overlay-theme="c">{{#array}}{{#Merits_HPMP_Entries}}<option value="{{index}}">{{value}}</option>{{/Merits_HPMP_Entries}}{{/array}}</select>
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="ui-btn eq-grid eq-grid-label">
+					{{#string}}{{MP}}{{/string}}
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="eq-grid">
+					<select id="MP" data-inline="true" data-mini="true" data-overlay-theme="c">{{#array}}{{#Merits_HPMP_Entries}}<option value="{{index}}">{{value}}</option>{{/Merits_HPMP_Entries}}{{/array}}</select>
+				</div>
+			</div> 
+		</div>
+
+		<div class="eq-grid-row">
+			<div class="eq-grid-4 eq-font-90">
+				<div class="ui-btn eq-grid eq-grid-label">
+					{{#string}}{{STR}}{{/string}}
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="eq-grid">
+					<select id="STR" data-inline="true" data-mini="true" data-overlay-theme="c">{{#array}}{{#Merits_Status_Entries}}<option value="{{index}}">{{value}}</option>{{/Merits_Status_Entries}}{{/array}}</select>
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="ui-btn eq-grid eq-grid-label">
+					{{#string}}{{DEX}}{{/string}}
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="eq-grid">
+					<select id="DEX" data-inline="true" data-mini="true" data-overlay-theme="c">{{#array}}{{#Merits_Status_Entries}}<option value="{{index}}">{{value}}</option>{{/Merits_Status_Entries}}{{/array}}</select>
+				</div>
+			</div> 
+		</div>
+
+		<div class="eq-grid-row">
+			<div class="eq-grid-4 eq-font-90">
+				<div class="ui-btn eq-grid eq-grid-label">
+					{{#string}}{{VIT}}{{/string}}
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="eq-grid">
+					<select id="VIT" data-inline="true" data-mini="true" data-overlay-theme="c">{{#array}}{{#Merits_Status_Entries}}<option value="{{index}}">{{value}}</option>{{/Merits_Status_Entries}}{{/array}}</select>
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="ui-btn eq-grid eq-grid-label">
+					{{#string}}{{AGI}}{{/string}}
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="eq-grid">
+					<select id="AGI" data-inline="true" data-mini="true" data-overlay-theme="c">{{#array}}{{#Merits_Status_Entries}}<option value="{{index}}">{{value}}</option>{{/Merits_Status_Entries}}{{/array}}</select>
+				</div>
+			</div> 
+		</div>
+
+		<div class="eq-grid-row">
+			<div class="eq-grid-4 eq-font-90">
+				<div class="ui-btn eq-grid eq-grid-label">
+					{{#string}}{{INT}}{{/string}}
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="eq-grid">
+					<select id="INT" data-inline="true" data-mini="true" data-overlay-theme="c">{{#array}}{{#Merits_Status_Entries}}<option value="{{index}}">{{value}}</option>{{/Merits_Status_Entries}}{{/array}}</select>
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="ui-btn eq-grid eq-grid-label">
+					{{#string}}{{MND}}{{/string}}
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="eq-grid">
+					<select id="MND" data-inline="true" data-mini="true" data-overlay-theme="c">{{#array}}{{#Merits_Status_Entries}}<option value="{{index}}">{{value}}</option>{{/Merits_Status_Entries}}{{/array}}</select>
+				</div>
+			</div> 
+		</div>
+
+		<div class="eq-grid-row">
+			<div class="eq-grid-4 eq-font-90">
+				<div class="ui-btn eq-grid eq-grid-label">
+					{{#string}}{{CHR}}{{/string}}
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="eq-grid">
+					<select id="CHR" data-inline="true" data-mini="true" data-overlay-theme="c">{{#array}}{{#Merits_Status_Entries}}<option value="{{index}}">{{value}}</option>{{/Merits_Status_Entries}}{{/array}}</select>
+				</div>
+			</div> 
+		</div>
+
+		<div class="eq-grid-row">
+			<div class="eq-grid-4 eq-font-90">
+				<div class="ui-btn eq-grid eq-grid-label">
+					{{#string}}{{HANDTOHAND}}{{/string}}
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="eq-grid">
+					<select id="HANDTOHAND" data-inline="true" data-mini="true" data-overlay-theme="c">{{#array}}{{#Merits_Skill_Entries}}<option value="{{index}}">{{value}}</option>{{/Merits_Skill_Entries}}{{/array}}</select>
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="ui-btn eq-grid eq-grid-label">
+					{{#string}}{{DAGGER}}{{/string}}
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="eq-grid">
+					<select id="DAGGER" data-inline="true" data-mini="true" data-overlay-theme="c">{{#array}}{{#Merits_Skill_Entries}}<option value="{{index}}">{{value}}</option>{{/Merits_Skill_Entries}}{{/array}}</select>
+				</div>
+			</div> 
+		</div>
+
+		<div class="eq-grid-row">
+			<div class="eq-grid-4 eq-font-90">
+				<div class="ui-btn eq-grid eq-grid-label">
+					{{#string}}{{SWORD}}{{/string}}
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="eq-grid">
+					<select id="SWORD" data-inline="true" data-mini="true" data-overlay-theme="c">{{#array}}{{#Merits_Skill_Entries}}<option value="{{index}}">{{value}}</option>{{/Merits_Skill_Entries}}{{/array}}</select>
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="ui-btn eq-grid eq-grid-label">
+					{{#string}}{{GREATSWORD}}{{/string}}
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="eq-grid">
+					<select id="GREATSWORD" data-inline="true" data-mini="true" data-overlay-theme="c">{{#array}}{{#Merits_Skill_Entries}}<option value="{{index}}">{{value}}</option>{{/Merits_Skill_Entries}}{{/array}}</select>
+				</div>
+			</div> 
+		</div>
+
+		<div class="eq-grid-row">
+			<div class="eq-grid-4 eq-font-90">
+				<div class="ui-btn eq-grid eq-grid-label">
+					{{#string}}{{AXE}}{{/string}}
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="eq-grid">
+					<select id="AXE" data-inline="true" data-mini="true" data-overlay-theme="c">{{#array}}{{#Merits_Skill_Entries}}<option value="{{index}}">{{value}}</option>{{/Merits_Skill_Entries}}{{/array}}</select>
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="ui-btn eq-grid eq-grid-label">
+					{{#string}}{{GREATAXE}}{{/string}}
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="eq-grid">
+					<select id="GREATAXE" data-inline="true" data-mini="true" data-overlay-theme="c">{{#array}}{{#Merits_Skill_Entries}}<option value="{{index}}">{{value}}</option>{{/Merits_Skill_Entries}}{{/array}}</select>
+				</div>
+			</div> 
+		</div>
+
+		<div class="eq-grid-row">
+			<div class="eq-grid-4 eq-font-90">
+				<div class="ui-btn eq-grid eq-grid-label">
+					{{#string}}{{SCYTH}}{{/string}}
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="eq-grid">
+					<select id="SCYTH" data-inline="true" data-mini="true" data-overlay-theme="c">{{#array}}{{#Merits_Skill_Entries}}<option value="{{index}}">{{value}}</option>{{/Merits_Skill_Entries}}{{/array}}</select>
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="ui-btn eq-grid eq-grid-label">
+					{{#string}}{{POLEARM}}{{/string}}
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="eq-grid">
+					<select id="POLEARM" data-inline="true" data-mini="true" data-overlay-theme="c">{{#array}}{{#Merits_Skill_Entries}}<option value="{{index}}">{{value}}</option>{{/Merits_Skill_Entries}}{{/array}}</select>
+				</div>
+			</div> 
+		</div>
+
+		<div class="eq-grid-row">
+			<div class="eq-grid-4 eq-font-90">
+				<div class="ui-btn eq-grid eq-grid-label">
+					{{#string}}{{KATANA}}{{/string}}
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="eq-grid">
+					<select id="KATANA" data-inline="true" data-mini="true" data-overlay-theme="c">{{#array}}{{#Merits_Skill_Entries}}<option value="{{index}}">{{value}}</option>{{/Merits_Skill_Entries}}{{/array}}</select>
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="ui-btn eq-grid eq-grid-label">
+					{{#string}}{{GREATKATANA}}{{/string}}
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="eq-grid">
+					<select id="GREATKATANA" data-inline="true" data-mini="true" data-overlay-theme="c">{{#array}}{{#Merits_Skill_Entries}}<option value="{{index}}">{{value}}</option>{{/Merits_Skill_Entries}}{{/array}}</select>
+				</div>
+			</div> 
+		</div>
+
+		<div class="eq-grid-row">
+			<div class="eq-grid-4 eq-font-90">
+				<div class="ui-btn eq-grid eq-grid-label">
+					{{#string}}{{CLUB}}{{/string}}
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="eq-grid">
+					<select id="KATANA" data-inline="true" data-mini="true" data-overlay-theme="c">{{#array}}{{#Merits_Skill_Entries}}<option value="{{index}}">{{value}}</option>{{/Merits_Skill_Entries}}{{/array}}</select>
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="ui-btn eq-grid eq-grid-label">
+					{{#string}}{{STAFF}}{{/string}}
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="eq-grid">
+					<select id="GREATKATANA" data-inline="true" data-mini="true" data-overlay-theme="c">{{#array}}{{#Merits_Skill_Entries}}<option value="{{index}}">{{value}}</option>{{/Merits_Skill_Entries}}{{/array}}</select>
+				</div>
+			</div> 
+		</div>
+
+		<div class="eq-grid-row">
+			<div class="eq-grid-4 eq-font-90">
+				<div class="ui-btn eq-grid eq-grid-label">
+					{{#string}}{{ARCHERY}}{{/string}}
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="eq-grid">
+					<select id="ARCHERY" data-inline="true" data-mini="true" data-overlay-theme="c">{{#array}}{{#Merits_Skill_Entries}}<option value="{{index}}">{{value}}</option>{{/Merits_Skill_Entries}}{{/array}}</select>
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="ui-btn eq-grid eq-grid-label">
+					{{#string}}{{MARKSMANSHIP}}{{/string}}
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="eq-grid">
+					<select id="MARKSMANSHIP" data-inline="true" data-mini="true" data-overlay-theme="c">{{#array}}{{#Merits_Skill_Entries}}<option value="{{index}}">{{value}}</option>{{/Merits_Skill_Entries}}{{/array}}</select>
+				</div>
+			</div> 
+		</div>
+
+		<div class="eq-grid-row">
+			<div class="eq-grid-4 eq-font-90">
+				<div class="ui-btn eq-grid eq-grid-label">
+					{{#string}}{{THROWING}}{{/string}}
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="eq-grid">
+					<select id="THROWING" data-inline="true" data-mini="true" data-overlay-theme="c">{{#array}}{{#Merits_Skill2_Entries}}<option value="{{index}}">{{value}}</option>{{/Merits_Skill2_Entries}}{{/array}}</select>
+				</div>
+			</div> 
+		</div>
+
+		<div class="eq-grid-row">
+			<div class="eq-grid-4 eq-font-90">
+				<div class="ui-btn eq-grid eq-grid-label">
+					{{#string}}{{GUARDING}}{{/string}}
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="eq-grid">
+					<select id="GUARDING" data-inline="true" data-mini="true" data-overlay-theme="c">{{#array}}{{#Merits_Skill2_Entries}}<option value="{{index}}">{{value}}</option>{{/Merits_Skill2_Entries}}{{/array}}</select>
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="ui-btn eq-grid eq-grid-label">
+					{{#string}}{{EVASION}}{{/string}}
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="eq-grid">
+					<select id="EVASION" data-inline="true" data-mini="true" data-overlay-theme="c">{{#array}}{{#Merits_Skill2_Entries}}<option value="{{index}}">{{value}}</option>{{/Merits_Skill2_Entries}}{{/array}}</select>
+				</div>
+			</div> 
+		</div>
+
+		<div class="eq-grid-row">
+			<div class="eq-grid-4 eq-font-90">
+				<div class="ui-btn eq-grid eq-grid-label">
+					{{#string}}{{SHIELD}}{{/string}}
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="eq-grid">
+					<select id="SHIELD" data-inline="true" data-mini="true" data-overlay-theme="c">{{#array}}{{#Merits_Skill2_Entries}}<option value="{{index}}">{{value}}</option>{{/Merits_Skill2_Entries}}{{/array}}</select>
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="ui-btn eq-grid eq-grid-label">
+					{{#string}}{{PARRYING}}{{/string}}
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="eq-grid">
+					<select id="PARRYING" data-inline="true" data-mini="true" data-overlay-theme="c">{{#array}}{{#Merits_Skill2_Entries}}<option value="{{index}}">{{value}}</option>{{/Merits_Skill2_Entries}}{{/array}}</select>
+				</div>
+			</div> 
+		</div>
+
+		<div class="eq-grid-row">
+			<div class="eq-grid-4 eq-font-90">
+				<div class="ui-btn eq-grid eq-grid-label">
+					{{#string}}{{DIVINEMAGIC}}{{/string}}
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="eq-grid">
+					<select id="DIVINEMAGIC" data-inline="true" data-mini="true" data-overlay-theme="c">{{#array}}{{#Merits_Skill_Entries}}<option value="{{index}}">{{value}}</option>{{/Merits_Skill_Entries}}{{/array}}</select>
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="ui-btn eq-grid eq-grid-label">
+					{{#string}}{{HEALINGMAGIC}}{{/string}}
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="eq-grid">
+					<select id="HEALINGMAGIC" data-inline="true" data-mini="true" data-overlay-theme="c">{{#array}}{{#Merits_Skill_Entries}}<option value="{{index}}">{{value}}</option>{{/Merits_Skill_Entries}}{{/array}}</select>
+				</div>
+			</div> 
+		</div>
+
+		<div class="eq-grid-row">
+			<div class="eq-grid-4 eq-font-90">
+				<div class="ui-btn eq-grid eq-grid-label">
+					{{#string}}{{ENCHANCINGMAGIC}}{{/string}}
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="eq-grid">
+					<select id="ENCHANCINGMAGIC" data-inline="true" data-mini="true" data-overlay-theme="c">{{#array}}{{#Merits_Skill_Entries}}<option value="{{index}}">{{value}}</option>{{/Merits_Skill_Entries}}{{/array}}</select>
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="ui-btn eq-grid eq-grid-label">
+					{{#string}}{{ENFEEBLINGMAGIC}}{{/string}}
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="eq-grid">
+					<select id="ENFEEBLINGMAGIC" data-inline="true" data-mini="true" data-overlay-theme="c">{{#array}}{{#Merits_Skill_Entries}}<option value="{{index}}">{{value}}</option>{{/Merits_Skill_Entries}}{{/array}}</select>
+				</div>
+			</div> 
+		</div>
+
+		<div class="eq-grid-row">
+			<div class="eq-grid-4 eq-font-90">
+				<div class="ui-btn eq-grid eq-grid-label">
+					{{#string}}{{ELEMENTALMAGIC}}{{/string}}
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="eq-grid">
+					<select id="ELEMENTALMAGIC" data-inline="true" data-mini="true" data-overlay-theme="c">{{#array}}{{#Merits_Skill_Entries}}<option value="{{index}}">{{value}}</option>{{/Merits_Skill_Entries}}{{/array}}</select>
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="ui-btn eq-grid eq-grid-label">
+					{{#string}}{{DARKMAGIC}}{{/string}}
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="eq-grid">
+					<select id="DARKMAGIC" data-inline="true" data-mini="true" data-overlay-theme="c">{{#array}}{{#Merits_Skill_Entries}}<option value="{{index}}">{{value}}</option>{{/Merits_Skill_Entries}}{{/array}}</select>
+				</div>
+			</div> 
+		</div>
+
+		<div class="eq-grid-row">
+			<div class="eq-grid-4 eq-font-90">
+				<div class="ui-btn eq-grid eq-grid-label">
+					{{#string}}{{SINGING}}{{/string}}
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="eq-grid">
+					<select id="SINGING" data-inline="true" data-mini="true" data-overlay-theme="c">{{#array}}{{#Merits_Skill_Entries}}<option value="{{index}}">{{value}}</option>{{/Merits_Skill_Entries}}{{/array}}</select>
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="ui-btn eq-grid eq-grid-label">
+					{{#string}}{{STRINGINSTRUMENT}}{{/string}}
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="eq-grid">
+					<select id="STRINGINSTRUMENT" data-inline="true" data-mini="true" data-overlay-theme="c">{{#array}}{{#Merits_Skill_Entries}}<option value="{{index}}">{{value}}</option>{{/Merits_Skill_Entries}}{{/array}}</select>
+				</div>
+			</div> 
+		</div>
+
+		<div class="eq-grid-row">
+			<div class="eq-grid-4 eq-font-90">
+				<div class="ui-btn eq-grid eq-grid-label">
+					{{#string}}{{WINDINSTRUMENT}}{{/string}}
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="eq-grid">
+					<select id="WINDINSTRUMENT" data-inline="true" data-mini="true" data-overlay-theme="c">{{#array}}{{#Merits_Skill_Entries}}<option value="{{index}}">{{value}}</option>{{/Merits_Skill_Entries}}{{/array}}</select>
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="ui-btn eq-grid eq-grid-label">
+					{{#string}}{{NINJUTSU}}{{/string}}
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="eq-grid">
+					<select id="NINJUTSU" data-inline="true" data-mini="true" data-overlay-theme="c">{{#array}}{{#Merits_Skill_Entries}}<option value="{{index}}">{{value}}</option>{{/Merits_Skill_Entries}}{{/array}}</select>
+				</div>
+			</div> 
+		</div>
+
+		<div class="eq-grid-row">
+			<div class="eq-grid-4 eq-font-90">
+				<div class="ui-btn eq-grid eq-grid-label">
+					{{#string}}{{SUMMONING}}{{/string}}
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="eq-grid">
+					<select id="SUMMONING" data-inline="true" data-mini="true" data-overlay-theme="c">{{#array}}{{#Merits_Skill_Entries}}<option value="{{index}}">{{value}}</option>{{/Merits_Skill_Entries}}{{/array}}</select>
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="ui-btn eq-grid eq-grid-label">
+					{{#string}}{{BLUEMAGIC}}{{/string}}
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="eq-grid">
+					<select id="BLUEMAGIC" data-inline="true" data-mini="true" data-overlay-theme="c">{{#array}}{{#Merits_Skill_Entries}}<option value="{{index}}">{{value}}</option>{{/Merits_Skill_Entries}}{{/array}}</select>
+				</div>
+			</div> 
+		</div>
+
+		<div class="eq-grid-row">
+			<div class="eq-grid-4 eq-font-90">
+				<div class="ui-btn eq-grid eq-grid-label">
+					{{#string}}{{ENMITY}}{{/string}}
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="eq-grid">
+					<select id="ENMITY" data-inline="true" data-mini="true" data-overlay-theme="c">{{#array}}{{#Merits_Enmity_Entries}}<option value="{{index}}">{{value}}</option>{{/Merits_Enmity_Entries}}{{/array}}</select>
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-75">
+				<div class="ui-btn eq-grid eq-grid-label">
+					{{#string}}{{CRITICAL}}{{/string}}
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="eq-grid">
+					<select id="CRITICAL" data-inline="true" data-mini="true" data-overlay-theme="c">{{#array}}{{#Merits_Other_Entries}}<option value="{{index}}">{{value}}</option>{{/Merits_Other_Entries}}{{/array}}</select>
+				</div>
+			</div> 
+		</div>
+
+		<div class="eq-grid-row">
+			<div class="eq-grid-4 eq-font-65">
+				<div class="ui-btn eq-grid eq-grid-label">
+					{{#string}}{{CRITICALDEFENCE}}{{/string}}
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="eq-grid">
+					<select id="CRITICALDEFENCE" data-inline="true" data-mini="true" data-overlay-theme="c">{{#array}}{{#Merits_Other_Entries}}<option value="{{index}}">{{value}}</option>{{/Merits_Other_Entries}}{{/array}}</select>
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="ui-btn eq-grid eq-grid-label">
+					{{#string}}{{SPELLINTERRUPTION}}{{/string}}
+				</div>
+			</div> 
+			<div class="eq-grid-4 eq-font-90">
+				<div class="eq-grid">
+					<select id="SPELLINTERRUPTION" data-inline="true" data-mini="true" data-overlay-theme="c">{{#array}}{{#Merits_Other_Entries}}<option value="{{index}}">{{value}}</option>{{/Merits_Other_Entries}}{{/array}}</select>
+				</div>
+			</div> 
+		</div>
+
+	</div>
+
+</div>
+
+<div data-role="page" id="meritsjobmenu" data-overlay-theme="c">
+
+	<div data-role="header" data-theme="c">
+		<h1>{{#string}}{{JobSpecificMeritPointEdit}}{{/string}}</h1>
+	</div>
+
+	<div data-role="content">
+
+		<ul id="Magics" data-role="listview" data-inset="true">
+			{{#array}}
+			{{#Jobs}}
+			<li><a href="#meritsjobspec{{value}}">{{value}}</a></li>
+			{{/Jobs}}
+			{{/array}}
+		</ul>
+
+	</div>
+
+</div>
+
+{{#MeritsJobSpec}}
+<div data-role="page" id="meritsjobspec{{Job}}" data-overlay-theme="c">
+
+	<div data-role="header" data-theme="c">
+		<a href="/option/merits" data-icon="arrow-l" data-iconpos="notext" data-direction="reverse" class="ui-btn-left jqm-home">{{#string}}{{Menu}}{{/string}}</a>
+		<h1>{{Job}}</h1>
+	</div>
+
+	<div data-role="content">
+
+		<div class="ui-body ui-body-c">
+		{{#1}}
+			<div class="eq-grid-row">
+				<div class="eq-grid-2">
+					<div class="ui-btn eq-grid eq-grid-label">
+						{{Title}}
+					</div>
+				</div> 
+				<div class="eq-grid-2">
+					<div class="eq-grid">
+						<select id="{{_id}}" data-inline="true" data-mini="true" data-overlay-theme="c">{{#array}}{{#Merits_JobSpecific_Entries}}<option value="{{index}}">{{value}}</option>{{/Merits_JobSpecific_Entries}}{{/array}}</select>
+					</div>
+				</div> 
+			</div>
+		{{/1}}
+		</div>
+
+		<div class="ui-body ui-body-c">
+		{{#2}}
+			<div class="eq-grid-row">
+				<div class="eq-grid-2">
+					<div class="ui-btn eq-grid eq-grid-label">
+						{{Title}}
+					</div>
+				</div> 
+				<div class="eq-grid-2">
+					<div class="eq-grid">
+						<select id="{{_id}}" data-inline="true" data-mini="true" data-overlay-theme="c">{{#array}}{{#Merits_JobSpecific_Entries}}<option value="{{index}}">{{value}}</option>{{/Merits_JobSpecific_Entries}}{{/array}}</select>
+					</div>
+				</div> 
+			</div>
+		{{/2}}
+		</div>
+
+	</div>
+
+</div>
+{{/MeritsJobSpec}}

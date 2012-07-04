@@ -1,0 +1,55 @@
+<script src="/js/setting.js"></script>
+<script src="/js/model.js"></script>
+<script src="/js/widget.js"></script>
+<script src="/option.js"></script>
+
+<div data-role="page" id="option" data-overlay-theme="c">
+
+	<div data-role="header" data-id="mainheader" data-position="fixed" data-theme="c">
+		<div data-role="navbar" class="ui-navbar">
+		   <ul>
+			   <li><a href="/equip" data-icon="custom-pencil" class="">Equip</a></li>
+			   <li><a href="/basic" data-icon="custom-pencil" class="">Basic</a></li>
+			   <li><a href="/magic" data-icon="custom-pencil" class="">Magic</a></li>
+			   <li><a href="/status" data-icon="custom-calculator" class="">Status</a></li>
+			   <li><a href="/option" data-icon="gear" class="ui-btn-active ui-state-persist">Option</a></li>
+		   </ul>
+		</div>
+	</div>
+
+	<div data-role="content">
+
+		<select id="CharacterSelector">
+			<option value="">{{#string}}{{CharacterSelectorDropDownTitle}}{{/string}}</option>
+		</select>
+
+		<div data-role="fieldcontain">
+			<a data-role="button" data-icon="custom-disk" data-rel="dialog" href="#" id="save-button">
+				{{#string}}{{Save}}{{/string}}
+			</a>
+			<a data-role="button" data-icon="delete" data-rel="dialog" href="#">
+				{{#string}}{{Delete}}{{/string}}
+			</a>
+			<a data-role="button" data-icon="plus"   data-rel="dialog" href="#">
+				{{#string}}{{NewCharacter}}{{/string}}
+			</a>
+			<a data-role="button" data-icon="back"   data-rel="dialog" href="#">
+				{{#string}}{{Discard}}{{/string}}
+			</a>
+		</div>
+
+		<div data-role="fieldcontain">
+			<a data-role="button" data-icon="custom-pencil" href="/option/merits">
+				{{#string}}{{Merits}}{{/string}}
+			</a>
+			<a data-role="button" data-icon="custom-pencil" href="/option/skill">
+				{{#string}}{{Skill}}{{/string}}
+			</a>
+			<a data-role="button" data-icon="custom-pencil" href="/option/bluemagic">
+				{{#string}}{{EditBlueMagic}}{{/string}}
+			</a>
+		</div>
+
+	</div>
+
+</div>
