@@ -1,21 +1,17 @@
 var mongoose = require("mongoose")
 var _ = require("underscore")
+var R = require("../lib/res/stringsext")
 
 module.exports = function(app, config) {
 
 	var dbname = "ffxieq";
 
-	var collection = "VWAtma";
+	var collection = "Strings";
 
 	var schema = {
-		_id: Number,
-		subId: Number,
-		Name: String,
-		Lv: Number,
-		Description: String,
+		id: Number,
+		value: String,
 	}
-
-	var LV_MAX = 15;
 
 	return app.getModel("Application", true).extend(function() {
 		this.Schema = new mongoose.Schema(schema, { collection: collection });
@@ -32,24 +28,12 @@ module.exports = function(app, config) {
 
 			option = _.extend({
 				id: -1,
-				subId: -1,
-				filter: "",
 			}, option)
 
-			var filter = this.regex(this.escape(option.filter));
-
 			var q = this.Model.find();
-			q.or([ { "Name": filter }, { "Description": filter } ]);
 
 			if (option.id > -1)
-				q.where("_id", option.id);
-
-			if (option.subId > -1)
-				q.where("subId", option.subId);
-			else
-				q.where("Lv", LV_MAX);
-
-			q.sort("_id", 1);
+				q.where("id", option.id);
 
 			q.execFind(function(err, docs) {
 				if (err) throw new Error(err)

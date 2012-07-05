@@ -1,4 +1,4 @@
-var mongoose = require('mongoose')
+var mongoose = require("mongoose")
 var _ = require("underscore")
 var R = require("../lib/res/stringsext")
 
@@ -41,7 +41,7 @@ module.exports = function(app, config) {
 			var filter = this.regex(this.escape(option.filter));
 
 			var q = this.Model.find();
-			q.or([ { Name: filter }, { Description: filter } ]);
+			q.or([ { "Name": filter }, { "Description": filter } ]);
 			//q.limit(50);
 
 			if (option.id > -1)

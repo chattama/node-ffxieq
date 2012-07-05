@@ -3,6 +3,7 @@ var model = {
 		"Atma",
 		"VWAtma",
 		"Filter",
+		"Equip",
 		"Magic",
 		"Food",
 		"MeritPoint",

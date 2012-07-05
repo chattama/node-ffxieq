@@ -1,4 +1,7 @@
-<script src="equip.js"></script>
+<script src="/js/setting.js"></script>
+<script src="/js/model.js"></script>
+<script src="/js/widget.js"></script>
+<script src="/equip.js"></script>
 
 <div data-role="page" id="equip">
 
@@ -16,9 +19,9 @@
 
 	<div data-role="content">
 		<ul id="Equipments" data-role="listview" data-inset="true"> 
-			{{#Equipments}}
-			<li><a href="#">{{value}}</a></li> 
-			{{/Equipments}}
+			{{#Parts}}
+			<li><a href="/equip/equipset?part={{index}}&filter=">{{value}}:</a></li> 
+			{{/Parts}}
 		</ul> 
 	</div>
 

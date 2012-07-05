@@ -1,4 +1,4 @@
-var mongoose = require('mongoose')
+var mongoose = require("mongoose")
 var _ = require("underscore")
 var R = require("../lib/res/stringsext")
 

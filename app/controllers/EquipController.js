@@ -11,17 +11,17 @@ module.exports = function(app, config) {
 	.methods({
 
 		index: function(req, res) {
-
-			var Equipments = [];
-			{
-				var array = R.array.Parts;
-				for (var i = 0; i < array.length; i++) {
-					Equipments[i] = { index: array[i].index, value: array[i].value + ": " };
-				}
-			}
-
 			this.render(res, "/equip", {
-				Equipments: Equipments,
+				Parts: R.array.Parts,
+			})
+		},
+
+		equipset: function(req, res) {
+			this.render(res, "/equip/equipset", {
+				part: req.query.part,
+				filter: req.query.filter,
+				WebSearch0: R.array.SearchURIs[0].value,
+				WebSearch1: R.array.SearchURIs[1].value,
 			})
 		},
 

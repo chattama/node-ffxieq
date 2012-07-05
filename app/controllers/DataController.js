@@ -27,11 +27,15 @@ module.exports = function(app, config) {
 		},
 
 		atma: function(req, res) {
-			this.query(res, "Atma", { filter: req.query.filter || "" });
+			this.query(res, "Atma", {
+				filter: req.query.filter || ""
+			});
 		},
 
 		vwatma: function(req, res) {
-			this.query(res, "VWAtma", { filter: req.query.filter || "" });
+			this.query(res, "VWAtma", {
+				filter: req.query.filter || ""
+			});
 		},
 
 		food: function(req, res) {
@@ -47,6 +51,16 @@ module.exports = function(app, config) {
 			model.types({
 			}, function(docs) {
 				res.send(JSON.stringify(docs));
+			});
+		},
+
+		equipset: function(req, res) {
+			this.query(res, "Equipment", {
+				part: req.query.part || "",
+				job: 1, //mnk
+				lv: 99,
+				type: "",
+				filter: req.query.filter || "",
 			});
 		},
 
@@ -72,7 +86,9 @@ module.exports = function(app, config) {
 		},
 
 		bluemagic: function(req, res) {
-			this.query(res, "BlueMagic", { filter: req.query.filter || "" });
+			this.query(res, "BlueMagic", {
+				filter: req.query.filter || "",
+			});
 		},
 
 	})

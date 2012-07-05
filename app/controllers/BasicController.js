@@ -1,4 +1,4 @@
-var R = require("../lib/res/stringsext");
+var R = require("../lib/res/stringsext")
 
 module.exports = function(app, config) {
 
@@ -27,7 +27,7 @@ module.exports = function(app, config) {
 			var settingmodel = new FFXIEQSettingsModel();
 			var charinfo = settingmodel.getCharacter(req.session);
 
-			var food = charinfo.Info.getFood(index);
+			var food = charinfo.Info.getFood(req.query.index);
 
 			// sync/async process
 			var self = this;

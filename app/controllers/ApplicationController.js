@@ -1,4 +1,4 @@
-var R = require("../lib/res/stringsext");
+var R = require("../lib/res/stringsext")
 
 module.exports = function(app, config) {
 

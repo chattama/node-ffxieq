@@ -1,4 +1,4 @@
-var mongoose = require('mongoose')
+var mongoose = require("mongoose")
 var _ = require("underscore")
 
 module.exports = function(app, config) {
@@ -37,7 +37,7 @@ module.exports = function(app, config) {
 			var filter = this.regex(this.escape(option.filter));
 
 			var q = this.Model.find();
-			q.or([ { Name: filter }, { Description: filter } ]);
+			q.or([ { "Name": filter }, { "Description": filter } ]);
 
 			if (id > -1)
 				q.where("_id", id);

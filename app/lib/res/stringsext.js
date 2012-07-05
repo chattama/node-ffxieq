@@ -1,4 +1,4 @@
-var R = require('./strings');
+var R = require("./strings")
 
 var ext = {
 	Apply: "決定",
