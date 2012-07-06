@@ -9,13 +9,17 @@
 
 		<a href="/equip" data-icon="arrow-l" data-iconpos="notext" data-direction="reverse" class="ui-btn-left jqm-home">{{#string}}{{Menu}}{{/string}}</a>
 
-		<div data-role="controlgroup" data-type="horizontal" class="eq-right eq-font-90">
-			<a data-role="button" data-iconpos="noext" data-inline="true" data-mini="true" data-rel="dialog" href="/equip/equipset?part={{part}}&type={{type}}&lvsort=true&filter={{filter}}">{{#string}}{{OrderByLevel}}{{/string}}</a>
-			<a data-role="button" data-iconpos="noext" data-inline="true" data-mini="true" data-rel="dialog" href="/equip/equipset?part={{part}}&type={{type}}&lvsort=false&filter={{filter}}">{{#string}}{{OrderByName}}{{/string}}</a>
-			<a data-role="button" data-iconpos="noext" data-inline="true" data-mini="true" data-rel="dialog" href="#type">{{#string}}{{FilterByType}}{{/string}}</a>
-			<a data-role="button" data-iconpos="noext" data-inline="true" data-mini="true" data-rel="dialog" href="#filter">{{#string}}{{Filter}}{{/string}}</a>
-			<a data-role="button" data-iconpos="noext" data-inline="true" data-mini="true" data-rel="dialog" href="/equip/equipset?part={{part}}&type={{type}}&lvsort={{lvsort}}&filter=">{{#string}}{{ResetFilter}}{{/string}}</a>
-			<a data-role="button" data-iconpos="noext" data-inline="true" data-mini="true" data-rel="dialog" href="#">{{#string}}{{Remove}}{{/string}}</a>
+		<div data-role="controlgroup" data-type="horizontal" data-mini="true" class="eq-right eq-font-90 eq-equip">
+{{#lvsort}}
+			<a data-role="button" data-iconpos="noext" data-inline="true" data-rel="dialog" href="/equip/equipset?part={{part}}&type={{type}}&lvsort=false&filter={{filter}}">{{#string}}{{OrderByName}}{{/string}}</a>
+{{/lvsort}}
+{{^lvsort}}
+			<a data-role="button" data-iconpos="noext" data-inline="true" data-rel="dialog" href="/equip/equipset?part={{part}}&type={{type}}&lvsort=true&filter={{filter}}">{{#string}}{{OrderByLevel}}{{/string}}</a>
+{{/lvsort}}
+			<a data-role="button" data-iconpos="noext" data-inline="true" data-rel="dialog" href="#type">{{#string}}{{FilterByType}}{{/string}}</a>
+			<a data-role="button" data-iconpos="noext" data-inline="true" data-rel="dialog" href="#filter">{{#string}}{{Filter}}{{/string}}</a>
+			<a data-role="button" data-iconpos="noext" data-inline="true" data-rel="dialog" href="/equip/equipset?part={{part}}&type={{type}}&lvsort={{lvsort}}&filter=">{{#string}}{{ResetFilter}}{{/string}}</a>
+			<a data-role="button" data-iconpos="noext" data-inline="true" data-rel="dialog" href="#">{{#string}}{{Remove}}{{/string}}</a>
 		</div>
 
 	</div>

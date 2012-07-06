@@ -12,7 +12,7 @@ module.exports = function(app, config) {
 	.methods({
 
 		index: function(req, res) {
-			this.render(res, "/option", {
+			this.render(res, "/option/option", {
 			})
 		},
 

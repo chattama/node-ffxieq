@@ -11,7 +11,7 @@ module.exports = function(app, config) {
 	.methods({
 
 		index: function(req, res) {
-			this.render(res, "/equip", {
+			this.render(res, "/equip/equip", {
 				Parts: R.array.Parts,
 			})
 		},
@@ -20,7 +20,7 @@ module.exports = function(app, config) {
 			this.render(res, "/equip/equipset", {
 				part: req.query.part,
 				type: req.query.type,
-				lvsort: req.query.lvsort,
+				lvsort: (req.query.lvsort == "true"),
 				filter: req.query.filter,
 				WebSearch0: R.array.SearchURIs[0].value,
 				WebSearch1: R.array.SearchURIs[1].value,

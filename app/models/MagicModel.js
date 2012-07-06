@@ -85,7 +85,7 @@ module.exports = function(app, config) {
 
 			var q = this.Model.distinct("Type")
 
-			q.run(function(err, docs) {
+			q.exec(function(err, docs) {
 				if (err) throw new Error(err)
 
 				var ret = [];

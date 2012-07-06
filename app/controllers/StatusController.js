@@ -11,7 +11,7 @@ module.exports = function(app, config) {
 	.methods({
 
 		index: function(req, res) {
-			this.render(res, "/status", {
+			this.render(res, "/status/status", {
 			})
 		},
 

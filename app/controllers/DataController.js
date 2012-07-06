@@ -8,13 +8,14 @@ module.exports = function(app, config) {
 
 	.methods({
 
-		query: function(res, model, option) {
+		query: function(res, model, option, method) {
 			option = option || {};
+			method = method || "query";
 			var Model = app.getModel(model, true);
 			var model = new Model();
-			model.query(option, function(docs) {
+			model[method].apply(model, [ option,  function(docs) {
 				res.send(JSON.stringify(docs));
-			});
+			} ]);
 		},
 
 		filter: function(req, res) {
@@ -43,12 +44,7 @@ module.exports = function(app, config) {
 		},
 
 		foodtype: function(req, res) {
-			var Model = app.getModel("Food", true);
-			var model = new Model();
-			model.types({
-			}, function(docs) {
-				res.send(JSON.stringify(docs));
-			});
+			this.query(res, "Food", {}, "types");
 		},
 
 		equipset: function(req, res) {
@@ -63,20 +59,18 @@ module.exports = function(app, config) {
 		},
 
 		equiptype: function(req, res) {
-			var Model = app.getModel("Equipment", true);
-			var model = new Model();
-			model.types({
-			}, function(docs) {
-				res.send(JSON.stringify(docs));
-			});
+			this.query(res, "Equipment", {
+				//job: 1,
+				//lv: 99,
+				part: req.query.part,
+				type: req.query.type,
+				lvsort: (req.query.lvsort == "true"),
+				filter: req.query.filter,
+			}, "types");
 		},
 
 		magic: function(req, res) {
-			var Model = app.getModel("Magic", true);
-			var model = new Model();
-			model.group({}, function(docs) {
-				res.send(JSON.stringify(docs));
-			});
+			this.query(res, "Magic", {}, "group");
 		},
 
 		magicset: function(req, res) {
