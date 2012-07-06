@@ -9,12 +9,9 @@ module.exports = function(app, config) {
 	.methods({
 
 		query: function(res, model, option) {
-
 			option = option || {};
-
 			var Model = app.getModel(model, true);
 			var model = new Model();
-
 			model.query(option, function(docs) {
 				res.send(JSON.stringify(docs));
 			});
@@ -41,7 +38,7 @@ module.exports = function(app, config) {
 		food: function(req, res) {
 			this.query(res, "Food", {
 				filter: req.query.filter || "",
-				type: req.query.foodtype || "",
+				type: req.query.type || "",
 			});
 		},
 
@@ -56,11 +53,21 @@ module.exports = function(app, config) {
 
 		equipset: function(req, res) {
 			this.query(res, "Equipment", {
-				part: req.query.part || "",
-				job: 1, //mnk
-				lv: 99,
-				type: "",
-				filter: req.query.filter || "",
+				//job: 1,
+				//lv: 99,
+				part: req.query.part,
+				type: req.query.type,
+				lvsort: (req.query.lvsort == "true"),
+				filter: req.query.filter,
+			});
+		},
+
+		equiptype: function(req, res) {
+			var Model = app.getModel("Equipment", true);
+			var model = new Model();
+			model.types({
+			}, function(docs) {
+				res.send(JSON.stringify(docs));
 			});
 		},
 

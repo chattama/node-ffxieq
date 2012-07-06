@@ -7,11 +7,11 @@ var FoodTypeListView = ListView.extend({
 	template: function(model) {
 		var view = this;
 
-		var param = $.extend({}, view.param, { foodtype: model.get("Type") || "" });
+		var param = $.extend({}, view.param, { type: model.get("Type") || "" });
 		console.log(param);
 
 		var name = $("<h6 />");
-		name.text(param.foodtype);
+		name.text(param.type);
 
 		var link = $("<a />");
 		link.attr("href", "/basic/food?" + $.param(param));
@@ -28,7 +28,5 @@ var FoodTypeListView = ListView.extend({
 });
 
 (function($) {
-
 	$.widget("eq.FoodTypeListView", $.eq.eqlistview, { view: FoodTypeListView });
-
 })(jQuery);

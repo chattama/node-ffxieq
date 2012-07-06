@@ -10,13 +10,54 @@
 		<a href="/equip" data-icon="arrow-l" data-iconpos="notext" data-direction="reverse" class="ui-btn-left jqm-home">{{#string}}{{Menu}}{{/string}}</a>
 
 		<div data-role="controlgroup" data-type="horizontal" class="eq-right eq-font-90">
+			<a data-role="button" data-iconpos="noext" data-inline="true" data-mini="true" data-rel="dialog" href="/equip/equipset?part={{part}}&type={{type}}&lvsort=true&filter={{filter}}">{{#string}}{{OrderByLevel}}{{/string}}</a>
+			<a data-role="button" data-iconpos="noext" data-inline="true" data-mini="true" data-rel="dialog" href="/equip/equipset?part={{part}}&type={{type}}&lvsort=false&filter={{filter}}">{{#string}}{{OrderByName}}{{/string}}</a>
+			<a data-role="button" data-iconpos="noext" data-inline="true" data-mini="true" data-rel="dialog" href="#type">{{#string}}{{FilterByType}}{{/string}}</a>
+			<a data-role="button" data-iconpos="noext" data-inline="true" data-mini="true" data-rel="dialog" href="#filter">{{#string}}{{Filter}}{{/string}}</a>
+			<a data-role="button" data-iconpos="noext" data-inline="true" data-mini="true" data-rel="dialog" href="/equip/equipset?part={{part}}&type={{type}}&lvsort={{lvsort}}&filter=">{{#string}}{{ResetFilter}}{{/string}}</a>
 			<a data-role="button" data-iconpos="noext" data-inline="true" data-mini="true" data-rel="dialog" href="#">{{#string}}{{Remove}}{{/string}}</a>
 		</div>
 
 	</div>
 
 	<div data-role="content">
-		<ul id="equipsetlistview" data-role="listview" data-inset="true" eq-attr="part={{part}}&&filter={{filter}}"></ul>
+		<ul id="equipsetlistview" data-role="listview" data-inset="true" eq-attr="part={{part}}&type={{type}}&lvsort={{lvsort}}&filter={{filter}}"></ul>
+	</div>
+
+</div>
+
+<div data-role="page" id="type" data-overlay-theme="c">
+
+	<div data-role="header" data-theme="c">
+		<h1>{{#string}}{{FilterByType}}{{/string}}</h1>
+	</div>
+
+	<div data-role="content">
+		<ul id="equiptypelistview" data-role="listview" data-inset="true" eq-attr="part={{part}}&type={{type}}&lvsort={{lvsort}}&filter={{filter}}"></ul>
+	</div>
+
+</div>
+
+<div data-role="page" id="filter" data-overlay-theme="c">
+
+	<div data-role="header" data-theme="c">
+		<h1>{{#string}}{{Filter}}{{/string}}</h1>
+	</div>
+
+	<div data-role="content">
+
+		<form action="/basic/food" method="get" id="filterform">
+		<input type="search" name="filter" value="{{filter}}" />
+		<input type="hidden" name="part" value="{{part}}" />
+		<input type="hidden" name="type" value="{{type}}" />
+		<input type="hidden" name="lvsort" value="{{lvsort}}" />
+		<input type="hidden" name="addfilter" value="true" />
+		<form>
+
+		<div data-role="fieldcontain">
+			<ul id="filterlistview" data-role="listview" data-inset="true" eq-attr="part={{part}}&type={{type}}&lvsort={{lvsort}}&filter={{filter}}"></ul>
+		</div>
+
 	</div>
 
 </div>

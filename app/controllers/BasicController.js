@@ -30,12 +30,12 @@ module.exports = function(app, config) {
 			var food = charinfo.Info.getFood(req.query.index);
 
 			// sync/async process
-			var self = this;
+			var context = this;
 			var sync = function(o) {
-				self.render(res, "/basic/food", {
+				context.render(res, "/basic/food", {
 					index: req.query.index,
 					filter: req.query.filter,
-					foodtype: req.query.foodtype,
+					type: req.query.type,
 					name: o.name,
 					desc: o.desc,
 					WebSearch0: R.array.SearchURIs[0].value,

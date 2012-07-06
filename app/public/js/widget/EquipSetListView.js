@@ -11,7 +11,7 @@ var EquipSetListView = ListView.extend({
 
 		var name = $("<h1 />");
 		name.addClass("ui-li-heading");
-		name.html(this.highlight(model.get("Name") || "", param.filter) + (model.get("SubName") || ""));
+		name.html(this.highlight(model.get("Name") || "", param.filter) + (model.get("aaa") || ""));
 
 		var desc = $("<p />");
 		desc.addClass("eq-font-mono");

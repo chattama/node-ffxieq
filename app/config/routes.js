@@ -33,6 +33,7 @@ module.exports = function(app) {
 		"/data/foodtype"		: "Data.foodtype",
 
 		"/data/equipset"		: "Data.equipset",
+		"/data/equiptype"		: "Data.equiptype",
 
 		"/data/magic"			: "Data.magic",
 		"/data/magicset"		: "Data.magicset",

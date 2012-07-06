@@ -21,9 +21,9 @@ module.exports = function(app, config) {
 			var Model = app.getModel("MeritPoint", true);
 			var model = new Model();
 
-			var self = this;
+			var context = this;
 			var sync = function(o) {
-				self.render(res, "/option/merits", {
+				context.render(res, "/option/merits", {
 					MeritsJobSpec: o.MeritsJobSpec,
 				})
 			};

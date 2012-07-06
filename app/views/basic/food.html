@@ -10,9 +10,9 @@
 		<a href="/basic" data-icon="home" data-iconpos="notext" class="ui-btn-left jqm-home">{{#string}}{{Menu}}{{/string}}</a>
 
 		<div data-role="controlgroup" data-type="horizontal" class="eq-right eq-font-90">
-			<a data-role="button" data-iconpos="noext" data-inline="true" data-mini="true" data-rel="dialog" href="#foodtype">{{#string}}{{FilterByType}}{{/string}}</a>
+			<a data-role="button" data-iconpos="noext" data-inline="true" data-mini="true" data-rel="dialog" href="#type">{{#string}}{{FilterByType}}{{/string}}</a>
 			<a data-role="button" data-iconpos="noext" data-inline="true" data-mini="true" data-rel="dialog" href="#filter">{{#string}}{{Filter}}{{/string}}</a>
-			<a data-role="button" data-iconpos="noext" data-inline="true" data-mini="true" data-rel="dialog" href="/basic/food?index={{index}}&filter=&foodtype={{foodtype}}">{{#string}}{{ResetFilter}}{{/string}}</a>
+			<a data-role="button" data-iconpos="noext" data-inline="true" data-mini="true" data-rel="dialog" href="/basic/food?index={{index}}&type={{type}}&filter=">{{#string}}{{ResetFilter}}{{/string}}</a>
 			<a data-role="button" data-iconpos="noext" data-inline="true" data-mini="true" data-rel="dialog" href="#">{{#string}}{{Remove}}{{/string}}</a>
 		</div>
 
@@ -25,20 +25,20 @@
 			<p class="eq-font-mono">{{desc}}</p>
 		</div>
 
-		<ul id="foodlistview" data-role="listview" data-inset="true" eq-attr="index={{index}}&filter={{filter}}&foodtype={{foodtype}}"></ul>
+		<ul id="foodlistview" data-role="listview" data-inset="true" eq-attr="index={{index}}&type={{type}}&filter={{filter}}"></ul>
 
 	</div>
 
 </div>
 
-<div data-role="page" id="foodtype" data-overlay-theme="c">
+<div data-role="page" id="type" data-overlay-theme="c">
 
 	<div data-role="header" data-theme="c">
 		<h1>{{#string}}{{FilterByType}}{{/string}}</h1>
 	</div>
 
 	<div data-role="content">
-		<ul id="foodtypelistview" data-role="listview" data-inset="true" eq-attr="index={{index}}&filter={{filter}}&foodtype={{foodtype}}"></ul>
+		<ul id="foodtypelistview" data-role="listview" data-inset="true" eq-attr="index={{index}}&type={{type}}&filter={{filter}}"></ul>
 	</div>
 
 </div>
@@ -54,12 +54,12 @@
 		<form action="/basic/food" method="get" id="filterform">
 		<input type="search" name="filter" value="{{filter}}" />
 		<input type="hidden" name="index" value="{{index}}" />
-		<input type="hidden" name="foodtype" value="{{foodtype}}" />
+		<input type="hidden" name="type" value="{{type}}" />
 		<input type="hidden" name="addfilter" value="true" />
 		<form>
 
 		<div data-role="fieldcontain">
-			<ul id="filterlistview" data-role="listview" data-inset="true" eq-attr="index={{index}}&filter={{filter}}&foodtype={{foodtype}}"></ul>
+			<ul id="filterlistview" data-role="listview" data-inset="true" eq-attr="index={{index}}&type={{type}}&filter={{filter}}"></ul>
 		</div>
 
 	</div>
