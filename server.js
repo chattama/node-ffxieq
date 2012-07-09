@@ -5,7 +5,7 @@ var matador = require("matador"),
 	app = matador.createApp(__dirname, config, {}),
 	port = argv.port || 3000
 
-app.configure(function () {
+app.configure(function() {
 
 	app.set("database", require("./app/config/database"))
 
@@ -14,6 +14,7 @@ app.configure(function () {
 
 	//app.use(matador.favicon())
 	app.use(matador.query())
+	app.use(matador.bodyParser())
 	app.use(matador.cookieParser())
 	app.use(matador.session({secret: "boosh"}))
 
@@ -22,10 +23,14 @@ app.configure(function () {
 	app.use(app.preRouter())
 })
 
-app.configure("development", function () {
+app.configure("development", function() {
 	app.use(function query(req, res, next){
-		console.log(req.url);
+		console.log("===============================================")
+		console.log("req.url: " + req.url);
+		console.log("req.query: ");
 		console.log(req.query);
+		console.log("req.body: ");
+		console.log(req.body);
 		next();
 	})
 	app.use(matador.errorHandler({ dumpExceptions: true, showStack: true }))
@@ -36,11 +41,11 @@ app.configure("development", function () {
 	})
 })
 
-app.configure("production", function () {
+app.configure("production", function() {
 	app.use(matador.errorHandler())
 })
 
-app.configure(function () {
+app.configure(function() {
 	app.use(app.router({}))
 })
 
