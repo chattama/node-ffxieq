@@ -14,9 +14,10 @@
     "node": ">= 0.7.9"
   },
   "dependencies": {
+    "async": "1.22",
     "backbone": "0.9.2",
     "klass": "1.2.2",
-    "matador": "1.1.8-beta",
+    "matador": ">= 1.1.8-beta",
     "mongoose": "2.7.1",
     "node-zip": "0.0.1",
     "sqlite3": "2.1.5",
