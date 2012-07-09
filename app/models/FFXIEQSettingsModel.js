@@ -20,8 +20,8 @@ module.exports = function(app, config) {
 				setting = SessionObject.deserialize(setting, FFXIEQSettings);
 			} else {
 				setting = new FFXIEQSettings();
-				session[DB_NAME] = setting;
 			}
+			session[DB_NAME] = setting;
 			return setting;
 		},
 
@@ -29,14 +29,20 @@ module.exports = function(app, config) {
 			session[DB_NAME] = setting;
 		},
 
-		getCharacter: function(session) {
+		getCurrentCharacterSet: function(session) {
 			var setting = this.get(session);
 			return setting.Current;
 		},
 
-		setCharacter: function(session, data) {
+		setCurrentCharacterSet: function(session, data) {
 			var setting = this.get(session);
 			setting.Current = data;
+		},
+
+		getCharacterSet: function(session) {
+		},
+
+		setCharacterSet: function(session, data) {
 		},
 
 		addFilter: function(session, filter) {

@@ -51,23 +51,25 @@
 
 		<div class="eq-container eq-content">
 			<ul id="Atmas" data-role="listview" data-inset="true">
-				<li><a href="/basic/atma?index=0&filter=">{{#string}}{{AtmaNotSelected}}{{/string}}</a></li> 
-				<li><a href="/basic/atma?index=1&filter=">{{#string}}{{AtmaNotSelected}}{{/string}}</a></li> 
-				<li><a href="/basic/atma?index=2&filter=">{{#string}}{{AtmaNotSelected}}{{/string}}</a></li> 
+				{{#atma}}
+				<li><a href="/basic/atma?index={{index}}&filter=">{{name}}</a></li> 
+				{{/atma}}
 			</ul> 
 		</div>
 		
 		<div class="eq-container eq-content">
 			<ul id="Foods" data-role="listview" data-inset="true">
-				<li><a href="/basic/food?index=0&filter=&type=">{{#string}}{{FoodNotSelected}}{{/string}}</a></li> 
+				{{#food}}
+				<li><a href="/basic/food?index={{index}}&filter=&type=">{{name}}</a></li> 
+				{{/food}}
 			</ul> 
 		</div>
 
 		<div class="eq-container eq-content">
 			<ul id="VWAtmas" data-role="listview" data-inset="true">
-				<li><a href="/basic/vwatma?index=0&filter=">{{#string}}{{VWAtmaNotSelected}}{{/string}}</a></li> 
-				<li><a href="/basic/vwatma?index=1&filter=">{{#string}}{{VWAtmaNotSelected}}{{/string}}</a></li> 
-				<li><a href="/basic/vwatma?index=2&filter=">{{#string}}{{VWAtmaNotSelected}}{{/string}}</a></li> 
+				{{#vwatma}}
+				<li><a href="/basic/vwatma?index={{index}}&filter=">{{name}}</a></li> 
+				{{/vwatma}}
 			</ul> 
 		</div>
 

@@ -23,7 +23,7 @@ var FoodListView = ListView.extend({
 		link.append(name);
 		link.append(desc);
 		link.bind("vclick", function(event) {
-			view.save(event, model, "food");
+			view.save(event, "food", "/basic", $.extend(view.param, model.attributes));
 		});
 
 		var li = $("<li />");
@@ -34,7 +34,5 @@ var FoodListView = ListView.extend({
 });
 
 (function($) {
-
 	$.widget("eq.FoodListView", $.eq.eqlistview, { view: FoodListView });
-
 })(jQuery);

@@ -30,6 +30,22 @@ module.exports = SessionObject.extend(function() {
 
 .methods({
 
+	getAtma: function(index) {
+		return this.AtmaSet.getAtma(index);
+	},
+
+	setAtma: function(index, atma) {
+		this.AtmaSet.setAtma(index, atma);
+	},
+
+	getVWAtma: function(index) {
+		return this.VWAtmaSet.getAtma(index);
+	},
+
+	setVWAtma: function(index, atma) {
+		this.VWAtmaSet.setAtma(index, atma);
+	},
+
 	getFood: function(index) {
 		return this.Food;
 	},
@@ -46,12 +62,12 @@ module.exports = SessionObject.extend(function() {
 	deserialize: function() {
 		this.Level = SessionObject.deserialize(this.Level, JobLevelAndRace);
 		this.JobAndRace = SessionObject.deserialize(this.JobAndRace, JobAndRace);
-		this.Equipment = SessionObject.deserialize(this.Equipment ,EquipmentSet);
-		this.Merits = SessionObject.deserialize(this.Merits ,MeritPoint);
-		this.AtmaSet = SessionObject.deserialize(this.AtmaSet ,AtmaSet);
-		this.Food = SessionObject.deserialize(this.Food ,Food);
-		this.MagicSet = SessionObject.deserialize(this.MagicSet ,MagicSet);
-		this.VWAtmaSet = SessionObject.deserialize(this.VWAtmaSet ,VWAtmaSet);
-		this.BlueMagicSet = SessionObject.deserialize(this.BlueMagicSet ,BlueMagicSet);
+		this.Equipment = SessionObject.deserialize(this.Equipment, EquipmentSet);
+		this.Merits = SessionObject.deserialize(this.Merits, MeritPoint);
+		this.AtmaSet = SessionObject.deserialize(this.AtmaSet, AtmaSet);
+		this.Food = SessionObject.deserialize(this.Food, Food);
+		this.MagicSet = SessionObject.deserialize(this.MagicSet, MagicSet);
+		this.VWAtmaSet = SessionObject.deserialize(this.VWAtmaSet, VWAtmaSet);
+		this.BlueMagicSet = SessionObject.deserialize(this.BlueMagicSet, BlueMagicSet);
 	},
 })

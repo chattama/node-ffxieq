@@ -13,9 +13,9 @@ SessionObject.statics({
 		if (obj instanceof Array) {
 			var self = this;
 			for (var i in obj)
-				obj[i] = SessionObject.deserialize(self, [ obj[i], clazz ]);
+				obj[i] = SessionObject.deserialize.apply(self, [ obj[i], clazz ]);
 		} else {
-			if (obj instanceof clazz)
+			if (obj instanceof clazz.constructor)
 				return obj;
 			obj.__proto__ = clazz.prototype;
 			// deserialize chain

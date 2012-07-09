@@ -11,7 +11,35 @@ module.exports = function(app, config) {
 	.methods({
 
 		index: function(req, res) {
+
+			var FFXIEQSettingsModel = app.getModel("FFXIEQSettings", true);
+			var settingmodel = new FFXIEQSettingsModel();
+
+			var charset = settingmodel.getCurrentCharacterSet(req.session);
+console.log(charset)
+
+			var atma = [];
+			for (var i = 0; i <= 2; i++) {
+				var obj = charset.Info.getAtma(i);
+				atma.push({ index: i, name: (obj == null) ? R.string.AtmaNotSelected: obj.Name });
+			}
+
+			var vwatma = [];
+			for (var i = 0; i <= 2; i++) {
+				var obj = charset.Info.getVWAtma(i);
+				vwatma.push({ index: i, name: (obj == null) ? R.string.VWAtmaNotSelected: obj.Name });
+			}
+
+			var food = [];
+			for (var i = 0; i <= 0; i++) {
+				var obj = charset.Info.getFood(i);
+				food.push({ index: i, name: (obj == null) ? R.string.FoodNotSelected: obj.Name });
+			}
+
 			this.render(res, "/basic/basic", {
+				atma: atma,
+				vwatma: vwatma,
+				food: food,
 			})
 		},
 
@@ -25,9 +53,10 @@ module.exports = function(app, config) {
 
 			var FFXIEQSettingsModel = app.getModel("FFXIEQSettings", true);
 			var settingmodel = new FFXIEQSettingsModel();
-			var charinfo = settingmodel.getCharacter(req.session);
 
-			var food = charinfo.Info.getFood(req.query.index);
+			var charset = settingmodel.getCurrentCharacterSet(req.session);
+
+			var food = charset.Info.getFood();
 
 			// sync/async process
 			var context = this;

@@ -10,7 +10,6 @@ module.exports = function(app, config) {
 	var schema = {
 		_id: Number,
 		Name: String,
-		DescriptionOrg: String,
 		Description: String,
 	}
 

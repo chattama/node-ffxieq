@@ -23,7 +23,7 @@ var BlueMagicListView = ListView.extend({
 		link.append(name);
 		link.append(desc);
 		link.bind("vclick", function(event) {
-			view.save(event, model, "bluemagic");
+			view.save(event, "bluemagic", "/option", $.extend(view.param, model.attributes));
 		});
 
 		var li = $("<li />");

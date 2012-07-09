@@ -28,7 +28,7 @@ var MagicSetListView = ListView.extend({
 		link.append(desc);
 		link.append(memo);
 		link.bind("vclick", function(event) {
-			view.save(event, model, "magicset");
+			view.save(event, "magicset", "/magic", $.extend(view.param, model.attributes));
 		});
 
 		var li = $("<li />");

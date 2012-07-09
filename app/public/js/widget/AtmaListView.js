@@ -23,7 +23,7 @@ var AtmaListView = ListView.extend({
 		link.append(name);
 		link.append(desc);
 		link.bind("vclick", function(event) {
-			view.save(event, model, "atma");
+			view.save(event, "atma", "/basic", $.extend(view.param, model.attributes));
 		});
 
 		var li = $("<li />");
@@ -34,7 +34,5 @@ var AtmaListView = ListView.extend({
 });
 
 (function($) {
-
 	$.widget("eq.AtmaListView", $.eq.eqlistview, { view: AtmaListView });
-
 })(jQuery);

@@ -28,7 +28,7 @@ var EquipSetListView = ListView.extend({
 		link.append(desc);
 		link.append(memo);
 		link.bind("vclick", function(event) {
-			view.save(event, model, "equipset");
+			view.save(event, "equipset", "/equip", $.extend(view.param, model.attributes));
 		});
 
 		var li = $("<li />");

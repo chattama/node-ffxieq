@@ -45,15 +45,15 @@ var ListView = Backbone.View.extend({
 		return text.replace(new RegExp(word || "", "i"), "<span class=\"eq-highlight\">$&</span>");
 	},
 
-	save: function(event, model, method) {
+	save: function(event, method, redirect, data) {
 
 		var h1 = $("<h1 />");
 		h1.addClass("ui-li-heading");
-		h1.text(model.get("Name") || "");
+		h1.text(data.Name || "");
 
 		var p = $("<p />");
 		p.addClass("eq-font-mono");
-		p.text(model.get("Description") || "");
+		p.text(data.Description || "");
 
 		var detail = $("#eq-data-detail");
 		detail.html("");
@@ -62,22 +62,28 @@ var ListView = Backbone.View.extend({
 
 		var apply = $("#eq-data-apply");
 		apply.bind("vclick", function(event) {
+			$.ajaxSetup({
+				cache : false,
+				contentType : 'application/x-www-form-urlencoded; charset=utf-8'
+			});
 			$.ajax({
 				url			: "/data/save",
-				type		: 'GET',
+				type		: 'POST',
 				dataType	: 'json',
-				cache		: false,
-				data		: $.extend(param, { method: method }),
-				success:function(){console.log("success");},
-				error:function(xhr, status, e){console.log("error " + e);},
+				data		: $.extend(true, data, { method: method }),
+				success		: function() {
+					if (redirect) $(location).attr("href", redirect);
+				},
+				error		: function() { console.log(arguments) },
 			});
+			return false;
 		});
 
 		var web0 = $("#eq-data-websearch0");
-		web0.attr("href", web0.attr("eq-attr") + model.get("Name"));
+		web0.attr("href", web0.attr("eq-attr") + data.Name);
 
 		var web1 = $("#eq-data-websearch1");
-		web1.attr("href", web1.attr("eq-attr") + model.get("Name"));
+		web1.attr("href", web1.attr("eq-attr") + data.Name);
 	},
 
 });
@@ -90,7 +96,7 @@ var ListView = Backbone.View.extend({
 		_init: function() {
 			this.id = this.element.attr("id");
 			this.listview = new this.view("#" + this.id, this.options);
-				this.listview.reset();
+			this.listview.reset();
 		},
 		refresh: function() {
 			this.listview.reset();

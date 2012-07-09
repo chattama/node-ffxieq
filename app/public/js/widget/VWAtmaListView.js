@@ -23,7 +23,7 @@ var VWAtmaListView = ListView.extend({
 		link.append(name);
 		link.append(desc);
 		link.bind("vclick", function(event) {
-			view.save(event, model, "vwatma");
+			view.save(event, "vwatma", "/basic", $.extend(view.param, model.attributes));
 		});
 
 		var li = $("<li />");
