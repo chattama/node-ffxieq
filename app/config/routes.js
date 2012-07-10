@@ -7,6 +7,7 @@ module.exports = function(app) {
 		"/basic/food"			: "Basic.food",
 		"/basic/atma"			: "Basic.atma",
 		"/basic/vwatma"			: "Basic.vwatma",
+		"/basic/vwatmaset"		: "Basic.vwatmaset",
 
 		"/equip"				: "Equip.index",
 		"/equip/equipset"		: "Equip.equipset",
@@ -29,6 +30,7 @@ module.exports = function(app) {
 
 		"/data/atma"			: "Data.atma",
 		"/data/vwatma"			: "Data.vwatma",
+		"/data/vwatmaset"		: "Data.vwatmaset",
 		"/data/food"			: "Data.food",
 		"/data/foodtype"		: "Data.foodtype",
 

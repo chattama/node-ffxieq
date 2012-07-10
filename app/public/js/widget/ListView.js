@@ -45,6 +45,10 @@ var ListView = Backbone.View.extend({
 		return text.replace(new RegExp(word || "", "i"), "<span class=\"eq-highlight\">$&</span>");
 	},
 
+	searchtitle: function(text) {
+		return text.replace(new RegExp("(.*)\\(.*", "i"), "$1");
+	},
+
 	save: function(event, method, redirect, data) {
 
 		var h1 = $("<h1 />");
@@ -80,16 +84,15 @@ var ListView = Backbone.View.extend({
 		});
 
 		var web0 = $("#eq-data-websearch0");
-		web0.attr("href", web0.attr("eq-attr") + data.Name);
+		web0.attr("href", web0.attr("eq-attr") + this.searchtitle(data.Name));
 
 		var web1 = $("#eq-data-websearch1");
-		web1.attr("href", web1.attr("eq-attr") + data.Name);
+		web1.attr("href", web1.attr("eq-attr") + this.searchtitle(data.Name));
 	},
 
 });
 
 (function($) {
-
 	$.widget("eq.eqlistview", $.eq.widget, {
 		options: {},
 		view: function() {},
@@ -102,5 +105,4 @@ var ListView = Backbone.View.extend({
 			this.listview.reset();
 		},
 	});
-
 })(jQuery);

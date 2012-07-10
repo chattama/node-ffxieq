@@ -16,7 +16,7 @@ module.exports = function(app, config) {
 			var settingmodel = new FFXIEQSettingsModel();
 
 			var charset = settingmodel.getCurrentCharacterSet(req.session);
-console.log(charset)
+console.log(JSON.stringify(charset))
 
 			var atma = [];
 			for (var i = 0; i <= 2; i++) {
@@ -46,7 +46,7 @@ console.log(charset)
 		food: function(req, res) {
 
 			if (req.query.addfilter == "true")
-				this.addFilter(req, filter);
+				this.addFilter(req, req.query.filter);
 
 			var name = "";
 			var desc = "";
@@ -99,7 +99,7 @@ console.log(charset)
 		atma: function(req, res) {
 
 			if (req.query.addfilter == "true")
-				this.addFilter(req, filter);
+				this.addFilter(req, req.query.filter);
 
 			this.render(res, "/basic/atma", {
 				index: req.query.index,
@@ -112,11 +112,18 @@ console.log(charset)
 		vwatma: function(req, res) {
 
 			if (req.query.addfilter == "true")
-				this.addFilter(req, filter);
+				this.addFilter(req, req.query.filter);
 
 			this.render(res, "/basic/vwatma", {
 				index: req.query.index,
 				filter: req.query.filter,
+			})
+		},
+
+		vwatmaset: function(req, res) {
+			this.render(res, "/basic/vwatmaset", {
+				index: req.query.index,
+				subid: req.query.subid,
 				WebSearch0: R.array.SearchURIs[0].value,
 				WebSearch1: R.array.SearchURIs[1].value,
 			})

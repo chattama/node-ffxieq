@@ -36,6 +36,12 @@ module.exports = function(app, config) {
 			});
 		},
 
+		vwatmaset: function(req, res) {
+			this.query(res, "VWAtma", {
+				SubId: req.query.subid,
+			});
+		},
+
 		food: function(req, res) {
 			this.query(res, "Food", {
 				filter: req.query.filter || "",

@@ -32,7 +32,7 @@ module.exports = function(app, config) {
 
 			option = _.extend({
 				id: -1,
-				subId: -1,
+				SubId: -1,
 				filter: "",
 			}, option)
 
@@ -44,8 +44,8 @@ module.exports = function(app, config) {
 			if (option.id > -1)
 				q.where("_id", option.id);
 
-			if (option.subId > -1)
-				q.where("subId", option.subId);
+			if (option.SubId > -1)
+				q.where("subId", option.SubId);
 			else
 				q.where("Lv", LV_MAX);
 

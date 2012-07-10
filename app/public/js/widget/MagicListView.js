@@ -28,7 +28,5 @@ var MagicListView = ListView.extend({
 });
 
 (function($) {
-
 	$.widget("eq.MagicListView", $.eq.eqlistview, { view: MagicListView });
-
 })(jQuery);

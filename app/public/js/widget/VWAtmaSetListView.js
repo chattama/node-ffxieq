@@ -1,13 +1,13 @@
-var VWAtmaListView = ListView.extend({
+var VWAtmaSetListView = ListView.extend({
 
-	url: "/data/vwatma",
+	url: "/data/vwatmaset",
 
 	collection: new model.VWAtmas(),
 
 	template: function(model) {
 		var view = this;
 
-		var param = $.extend({}, view.param, { subid: model.get("subId") });
+		var param = $.extend({}, view.param, { _id: model.get("_id") });
 
 		var name = $("<h1 />");
 		name.addClass("ui-li-heading");
@@ -18,10 +18,12 @@ var VWAtmaListView = ListView.extend({
 		desc.html(this.highlight(model.get("Description") || "", param.filter));
 
 		var link = $("<a />");
-		link.attr("href", "/basic/vwatmaset?" + $.param(param));
+		link.attr("href", "#confirm");
+		link.attr("data-rel", "dialog");
 		link.append(name);
 		link.append(desc);
 		link.bind("vclick", function(event) {
+			view.save(event, "vwatma", "/basic", $.extend(view.param, model.attributes));
 		});
 
 		var li = $("<li />");
@@ -33,5 +35,5 @@ var VWAtmaListView = ListView.extend({
 });
 
 (function($) {
-	$.widget("eq.VWAtmaListView", $.eq.eqlistview, { view: VWAtmaListView });
+	$.widget("eq.VWAtmaSetListView", $.eq.eqlistview, { view: VWAtmaSetListView });
 })(jQuery);
