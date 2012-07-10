@@ -124,6 +124,7 @@ console.log(JSON.stringify(charset))
 			this.render(res, "/basic/vwatmaset", {
 				index: req.query.index,
 				subid: req.query.subid,
+				filter: req.query.filter,
 				WebSearch0: R.array.SearchURIs[0].value,
 				WebSearch1: R.array.SearchURIs[1].value,
 			})

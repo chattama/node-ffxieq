@@ -42,7 +42,7 @@ var ListView = Backbone.View.extend({
 	},
 
 	highlight: function(text, word) {
-		return text.replace(new RegExp(word || "", "i"), "<span class=\"eq-highlight\">$&</span>");
+		return text.replace(new RegExp((word || "").replace(/[\\|\/|\.|\^|\$|\[|\]|\*|\+|\?|\||\(|\)]/g, "\\$&"), "i"), "<span class=\"eq-highlight\">$&</span>");
 	},
 
 	searchtitle: function(text) {
