@@ -87,6 +87,17 @@ module.exports = function(app, config) {
 		},
 
 		magicremove: function(req, res) {
+
+			var subid = req.body.subid;
+
+			var Model = app.getModel("FFXIEQSettings", true);
+			var model = new Model();
+
+			var charset = model.getCurrentCharacterSet(req.session);
+			charset.Info.delMagic(subid);
+
+			model.setCurrentCharacterSet(req.session, charset);
+
 			res.send(JSON.stringify({}));
 		},
 

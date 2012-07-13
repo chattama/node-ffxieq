@@ -67,6 +67,10 @@ module.exports = SessionObject.extend(function() {
 		this.MagicSet.addMagic(magic);
 	},
 
+	delMagic: function(subid) {
+		this.MagicSet.delMagic(subid);
+	},
+
 	deserialize: function() {
 		this.Level = SessionObject.deserialize(this.Level, JobLevelAndRace);
 		this.JobAndRace = SessionObject.deserialize(this.JobAndRace, JobAndRace);
