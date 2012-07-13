@@ -1,7 +1,8 @@
 var SessionObject = require("../lib/SessionObject"),
 	FFXICharacter = require("../lib/ffxieq/FFXICharacter"),
 	Atma = require("../lib/ffxieq/Atma"),
-	Food = require("../lib/ffxieq/Food")
+	Food = require("../lib/ffxieq/Food"),
+	Magic = require("../lib/ffxieq/Magic")
 
 module.exports = function(app, config) {
 
@@ -66,6 +67,26 @@ module.exports = function(app, config) {
 
 			model.setCurrentCharacterSet(req.session, charset);
 
+			res.send(JSON.stringify({}));
+		},
+
+		magicset: function(req, res) {
+
+			var magic = new Magic(req.body._id, req.body.SubId, req.body.Name, req.body.Description, req.body.Memo);
+			magic.SubName = req.body.SubName;
+
+			var Model = app.getModel("FFXIEQSettings", true);
+			var model = new Model();
+
+			var charset = model.getCurrentCharacterSet(req.session);
+			charset.Info.addMagic(magic);
+
+			model.setCurrentCharacterSet(req.session, charset);
+
+			res.send(JSON.stringify({}));
+		},
+
+		magicremove: function(req, res) {
 			res.send(JSON.stringify({}));
 		},
 

@@ -1,3 +1,5 @@
+var _ = require("underscore")
+
 module.exports = function(app, config) {
 
 	return app.getController("Application", true).extend({
@@ -8,12 +10,13 @@ module.exports = function(app, config) {
 
 	.methods({
 
-		query: function(res, model, option, method) {
+		query: function(res, model, option, method, callback) {
 			option = option || {};
 			method = method || "query";
 			var Model = app.getModel(model, true);
 			var model = new Model();
 			model[method].apply(model, [ option,  function(docs) {
+				if (callback) docs = callback.apply(this, [ docs ]);
 				res.send(JSON.stringify(docs));
 			} ]);
 		},
@@ -76,7 +79,23 @@ module.exports = function(app, config) {
 		},
 
 		magic: function(req, res) {
-			this.query(res, "Magic", {}, "group");
+			var Model = app.getModel("FFXIEQSettings", true);
+			var model = new Model();
+
+			var charset = model.getCurrentCharacterSet(req.session);
+			var magics = charset.Info.getMagics();
+
+			this.query(res, "Magic", {}, "group", function(docs) {
+				docs = _.map(docs, function(doc, index, list) {
+					var selected = magics[ doc.SubId ];
+					if (selected) {
+						doc = selected;
+						doc.selected = true;
+					}
+					return doc;
+				})
+				return docs;
+			});
 		},
 
 		magicset: function(req, res) {

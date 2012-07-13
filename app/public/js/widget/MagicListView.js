@@ -11,7 +11,7 @@ var MagicListView = ListView.extend({
 
 		var name = $("<h1 />");
 		name.addClass("ui-li-heading");
-		name.html(this.highlight(model.get("Name") || "", param.filter));
+		name.html(this.highlight(model.get("Name") || "", param.filter) + (model.get("SubName") || ""));
 
 		var link = $("<a />");
 		link.attr("href", "/magic/magicset?" + $.param(param));
@@ -20,6 +20,7 @@ var MagicListView = ListView.extend({
 		});
 
 		var li = $("<li />");
+		if (model.get("selected")) li.addClass("ui-btn-active");
 		li.append(link);
 
 		return li;

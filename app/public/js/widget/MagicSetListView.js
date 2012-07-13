@@ -37,19 +37,19 @@ var MagicSetListView = ListView.extend({
 		return li;
 	},
 
-	save: function(event, model, method) {
+	save: function(event, method, redirect, data) {
 
 		var name = $("<h1 />");
 		name.addClass("ui-li-heading");
-		name.text(model.get("Name") || "");
+		name.text(data.Name || "");
 
 		var desc = $("<p />");
 		desc.addClass("eq-font-mono");
-		desc.text(model.get("Description") || "");
+		desc.text(data.Description || "");
 
 		var memo = $("<p />");
 		memo.addClass("eq-font-mono");
-		memo.text(model.get("Memo") || "");
+		memo.text(data.Memo || "");
 
 		var detail = $("#eq-data-detail");
 		detail.html("");
@@ -61,26 +61,26 @@ var MagicSetListView = ListView.extend({
 		apply.bind("vclick", function(event) {
 			$.ajax({
 				url			: "/data/save",
-				type		: 'GET',
+				type		: 'POST',
 				dataType	: 'json',
 				cache		: false,
-				data		: $.extend(param, { method: method }),
-				success:function(){console.log("success");},
-				error:function(xhr, status, e){console.log("error " + e);},
+				data		: $.extend(true, data, { method: method }),
+				success		: function() {
+					if (redirect) $(location).attr("href", redirect);
+				},
+				error		: function() { console.log(arguments) },
 			});
 		});
 
 		var web0 = $("#eq-data-websearch0");
-		web0.attr("href", web0.attr("eq-attr") + model.get("Name"));
+		web0.attr("href", web0.attr("eq-attr") + this.searchtitle(data.Name));
 
 		var web1 = $("#eq-data-websearch1");
-		web1.attr("href", web1.attr("eq-attr") + model.get("Name"));
+		web1.attr("href", web1.attr("eq-attr") + this.searchtitle(data.Name));
 	},
 
 });
 
 (function($) {
-
 	$.widget("eq.MagicSetListView", $.eq.eqlistview, { view: MagicSetListView });
-
 })(jQuery);

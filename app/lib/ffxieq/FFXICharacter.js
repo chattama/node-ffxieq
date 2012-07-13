@@ -59,6 +59,14 @@ module.exports = SessionObject.extend(function() {
 		this.Food = food;
 	},
 
+	getMagics: function() {
+		return this.MagicSet.getMagics();
+	},
+
+	addMagic: function(magic) {
+		this.MagicSet.addMagic(magic);
+	},
+
 	deserialize: function() {
 		this.Level = SessionObject.deserialize(this.Level, JobLevelAndRace);
 		this.JobAndRace = SessionObject.deserialize(this.JobAndRace, JobAndRace);

@@ -51,29 +51,26 @@ var ListView = Backbone.View.extend({
 
 	save: function(event, method, redirect, data) {
 
-		var h1 = $("<h1 />");
-		h1.addClass("ui-li-heading");
-		h1.text(data.Name || "");
+		var name = $("<h1 />");
+		name.addClass("ui-li-heading");
+		name.text(data.Name || "");
 
-		var p = $("<p />");
-		p.addClass("eq-font-mono");
-		p.text(data.Description || "");
+		var desc = $("<p />");
+		desc.addClass("eq-font-mono");
+		desc.text(data.Description || "");
 
 		var detail = $("#eq-data-detail");
 		detail.html("");
-		detail.append(h1);
-		detail.append(p);
+		detail.append(name);
+		detail.append(desc);
 
 		var apply = $("#eq-data-apply");
 		apply.bind("vclick", function(event) {
-			$.ajaxSetup({
-				cache : false,
-				contentType : 'application/x-www-form-urlencoded; charset=utf-8'
-			});
 			$.ajax({
 				url			: "/data/save",
 				type		: 'POST',
 				dataType	: 'json',
+				cache		: false,
 				data		: $.extend(true, data, { method: method }),
 				success		: function() {
 					if (redirect) $(location).attr("href", redirect);
