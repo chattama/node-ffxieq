@@ -114,6 +114,8 @@ module.exports = new enums.Enum(
 	"LightArts",
 	"DarkArts",
 	"HasteByEquipment",
+	"DelayModifiedByHaste",
+	"Recast",
 
 	"MODIFIER_NUM"
 );
